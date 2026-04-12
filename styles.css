@@ -70,6 +70,7 @@ img {
 
 a {
   color: inherit;
+  border: none;
 }
 
 body {
@@ -270,14 +271,10 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0, 0, 0, 0.6),
-    transparent 55%
-  );
-  background-size: 1000px 100%;
-  animation: pulse 12s linear infinite;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.6), transparent 55%);
+  background-size: 200% 100%;
+  transform: translateX(-100%); /*Start off-screen to the left */
+  animation: shimmer 5s infinite;
 }
 
 .hero-media img {
@@ -334,14 +331,18 @@ main {
 }
 
 .values {
+  min-width: 1300px;
   margin-top: 20px;
   padding: 30px;
   padding-top: 50px;
   font-family: "Unbounded";
-  border: 1px solid #aaa;
+  /* border: 1px solid #aaa; */
+  font-weight: 300;
   border-radius: var(--radius);
-  transform: scale(0.9) translateX(-60px) translateY(50px);
+  /* transform: scale(0.9) translateX(-60px) translateY(50px);
   will-change: scale, border-radius;
+  box-shadow: var(--shadow); */
+  letter-spacing: 1px;
   transition: all var(--transition);
 }
 
@@ -422,12 +423,248 @@ main {
   line-height: 1.75;
 }
 
-@keyframes pulse {
+.metrics {
+  padding: 30px;
+  letter-spacing: 1px;
+  font-weight: 200;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1300px;
+}
+
+.grid-explanation {
+  width: 100%;
+  height: 10vh;
+  background-color: red;
+}
+
+.chart-container {
+  width: 80%;
+  /* margin: 100vh auto; Pushed down to test scroll trigger */
+  padding: 40px;
+  background: #111;
+  border-radius: 20px;
+  border: 1px solid #222;
+}
+
+.metrics .label {
+  font-family: "Unbounded";
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: -3px;
+  font-weight: 600;
+  /* justify-content: center; */
+  justify-self: center;
+  color: var(--accent);
+}
+
+.scroll-section {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* Left Side: Scrolling Content */
+.left-content {
+  width: 50%;
+  padding-left: 5%;
+}
+
+.content-block {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.2; /* Faded by default */
+  transition: opacity 0.5s ease;
+}
+
+.content-block h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.content-block p {
+  font-size: 1.2rem;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Right Side: Sticky Visuals */
+.right-visual {
+  width: 50%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-container span {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(10rem, 16vw, 15rem);
+  line-height: 1.2;
+  letter-spacing: -0.08em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--muted);
+  opacity: 0;
+  letter-spacing: 10rem;
+  transition: opacity 0.8s ease;
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.1); /* Subtle zoom effect */
+}
+
+/* Initial state for the first image */
+.slide-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-section {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.left-content {
+  width: 50%;
+  padding: 0 5%;
+}
+
+.content-block {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.1; /* High contrast fade */
+  transition: opacity 0.6s ease;
+}
+
+.content-block h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-emerald);
+  font-weight: 800;
+}
+
+.content-block p {
+  font-size: 1.1rem;
+  max-width: 420px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+/* FIX: Center the right visuals properly */
+.right-visual {
+  width: 50%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center; /* Vertical Center */
+  justify-content: center; /* Horizontal Center */
+  overflow: hidden;
+  background: radial-gradient(circle at center, #111 0%, #050505 70%);
+}
+
+/* We use letters instead of image URLs now */
+.letter-slide {
+  position: absolute;
+  font-size: 15rem; /* Large cinematic letters */
+  font-weight: 900;
+  color: #111; /* Subtle default color */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05); /* Ghostly outline */
+  opacity: 0;
+  transform: scale(0.5); /* Starts small */
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: var(--font-mono);
+}
+
+/* The active state managed by GSAP */
+.letter-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  color: rgba(255, 255, 255, 0.03);
+  -webkit-text-stroke: 1px var(--accent-emerald);
+}
+
+/* --- Global Chart Container Styles --- */
+.charts-showcase {
+  padding: 100px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 150px; /* Space between charts */
+  align-items: center;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* 1 part text, 1.5 parts chart */
+  gap: 50px;
+  align-items: center;
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  opacity: 0; /* Animated on scroll */
+  transform: translateY(30px);
+}
+
+.chart-text h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.chart-text p {
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.stat-badge {
+  display: inline-block;
+  padding: 8px 15px;
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent-emerald);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.chart-visual {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Fixed height for Chart.js */
+}
+
+@keyframes shimmer {
   0% {
-    background-position: -1000px 100%;
+    background-size: 100% 100%;
   }
   100% {
-    background-position: 1000px 0;
+    background-size: 300% 100%;
+    transform: translateX(0);
   }
 }
 

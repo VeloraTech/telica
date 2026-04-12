@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TELICA Digital Concept Africa</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="/js/chart.umd.min.js"></script>
+    <script src="/js//gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <div id="progress-bar"></div>
@@ -69,9 +72,45 @@
         <h2 class="section-title">Purpose-built value architecture.</h2>
         <span
           >We don't just deliver services, we partner with businesses to drive
-          measurable growth.Our standing partners love</span
+          measurable growth. Our principles are what makes our standing partners
+          want to keep standing the more with us. The values govern our very
+          existence</span
         >
-        <div class="dna-layout">
+        <section class="scroll-section">
+          <div class="left-content">
+            <div class="content-block">
+              <h2>Elastic Architecture</h2>
+              <p>
+                Deploy infrastructure that bends but doesn't break. Our systems
+                auto-scale based on real-time compute demand, ensuring zero
+                bottlenecks during peak traffic.
+              </p>
+            </div>
+            <div class="content-block">
+              <h2>Latency Optimization</h2>
+              <p>
+                We analyze the critical path of your data. By optimizing core
+                protocols and leveraging edge computing, we shave milliseconds
+                off every request.
+              </p>
+            </div>
+            <div class="content-block">
+              <h2>Robust Security</h2>
+              <p>
+                Security isn't an afterthought. We implement multi-layered
+                defense strategies, from hardware-level encryption to AI-driven
+                threat detection.
+              </p>
+            </div>
+          </div>
+
+          <div class="right-visual">
+            <div class="letter-slide active">E</div>
+            <div class="letter-slide">L</div>
+            <div class="letter-slide">R</div>
+          </div>
+        </section>
+        <!-- <div class="dna-layout">
           <div class="dna-stack" aria-hidden="true">
             <span>T</span>
             <span>E</span>
@@ -130,7 +169,7 @@
               </h3>
               <p>
                 Your audience is our compass. We build experiences that don't
-                just look good - they feel right ot your customers.
+                just look good - they feel right at your customers.
               </p>
             </article>
             <article class="dna-item">
@@ -144,6 +183,16 @@
                 and your Return on Ad Spend (ROAS).
               </p>
             </article>
+          </div>
+        </div> -->
+      </section>
+      <section class="metrics">
+        <p class="label">MEASURABLE VELOCITY</p>
+        <h2 class="section-title">Visible Motion with Velocity</h2>
+        <div class="metric-grid">
+          <div class="grid-explanation">dd</div>
+          <div class="chart-container">
+            <canvas id="myChart"></canvas>
           </div>
         </div>
       </section>
