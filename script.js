@@ -20,7 +20,15 @@ themeBtn.onclick = () => {
 themeBtn.innerHTML = currentTheme === "dark" ? "🌙" : "💡";
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".eyebrow").classList.add("loaded");
+  setTimeout(() => {
+    document.querySelector(".eyebrow").classList.add("loaded");
+    document.querySelector(".hero-title").classList.add("loaded");
+    document.querySelector("p").classList.add("loaded");
+    document
+      .querySelectorAll(".hero-actions")
+      .forEach()
+      .classList.add("loaded");
+  }, 1000);
 });
 
 // Load the CDN in your <head> or before this script:
@@ -119,46 +127,6 @@ spans.forEach((span, index) => {
     },
   );
 });
-
-// const blocks = gsap.utils.toArray(".content-block");
-// const images = gsap.utils.toArray(".slide-img");
-
-// blocks.forEach((block, i) => {
-//   ScrollTrigger.create({
-//     trigger: block,
-//     start: "top center",
-//     end: "bottom center",
-//     onEnter: () => updateSection(i),
-//     onEnterBack: () => updateSection(i),
-//     // This toggles the text opacity as you scroll
-//     onToggle: (self) =>
-//       gsap.to(block, { opacity: self.isActive ? 1 : 0.2, duration: 0.5 }),
-//   });
-// });
-
-// function updateSection(index) {
-//   images.forEach((img, i) => {
-//     if (i === index) {
-//       // Fade in and scale down to 1 (looks like it's landing)
-//       gsap.to(img, {
-//         opacity: 1,
-//         scale: 1,
-//         duration: 1,
-//         ease: "power2.out",
-//         overwrite: true,
-//       });
-//     } else {
-//       // Fade out and scale up slightly
-//       gsap.to(img, {
-//         opacity: 0,
-//         scale: 1.1,
-//         duration: 1,
-//         ease: "power2.out",
-//         overwrite: true,
-//       });
-//     }
-//   });
-// }
 gsap.registerPlugin(ScrollTrigger);
 
 // --- 1. Fix for Scroll Lock Visuals ---
@@ -269,7 +237,7 @@ function initUptimeChart() {
           label: "Uptime SLA (%)",
           data: [99.99, 99.99, 99.98, 99.99, 99.99, 100, 99.99],
           backgroundColor: "#111",
-          borderColor: "#222",
+          borderColor: "#4b5563",
           borderWidth: 1,
           borderRadius: 5,
           yAxisID: "yUp", // Left axis
