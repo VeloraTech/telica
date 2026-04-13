@@ -390,15 +390,17 @@ main {
 }
 
 .content-block .hero-actions {
+  margin-top: 36px;
   display: flex;
-  flex-direction: row !important;
-  gap: 12px;
-  margin-top: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  min-width: 500px;
 }
 
 .content-block .hero-actions .button {
-  padding: clamp(12px, 2.5vw, 16px) clamp(20px, 4vw, 34px);
   justify-content: center;
+  text-align: center;
 }
 
 #hero-cta {
@@ -1778,11 +1780,12 @@ main {
   }
 
   .content-block .hero-actions {
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     max-width: 100%;
     gap: 10px;
     margin-top: 16px;
+    flex-wrap: wrap;
   }
 
   .content-block .hero-actions .button {
