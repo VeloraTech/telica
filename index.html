@@ -6,31 +6,37 @@
     <title>TELICA Digital Concept Africa</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="js/chart.umd.min.js"></script>
-    <script src="js//gsap.min.js"></script>
+    <script src="js/gsap.min.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
   </head>
   <body>
     <div id="progress-bar"></div>
     <main>
       <header>
-        <a href="">
+        <a href="#hero" class="logo">
           <img
             src="assets/TELICA 2.png"
             alt="TELICA Digital Concept's Logo, Africa"
           />
         </a>
         <input type="checkbox" name="menu-toggle" id="hamburger" hidden />
-        <label for="menu-toggle">
+        <label for="hamburger" class="hamburger-menu">
           <span></span><span></span><span></span>
         </label>
-        <nav>
+        <nav class="navbar">
           <ul class="nav-links">
-            <li><a href="">Template</a></li>
-            <li><a href="">Lab</a></li>
-            <li><a href="">Metrics</a></li>
-            <li><a href="">DNA</a></li>
-            <button id="cta">Book an appointment</button>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#telica-values">Our Values</a></li>
+            <li><a href="#metrics">Metrics</a></li>
+            <li><a href="#growth">Get Started</a></li>
           </ul>
+          <a href="#growth" class="button primary" id="cta"
+            >Book an appointment</a
+          >
         </nav>
         <button id="theme-btn" class="theme-pill">🌙</button>
       </header>
@@ -48,7 +54,7 @@
               TELICA partners with ambitious teams to turn story, design, and
               experience into measurable growth in record time.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions" id="hero-cta">
               <a href="#contact" class="button primary">Book a Strategy Call</a>
               <a
                 href="mailto:telicaafrica22@gmail.com"
@@ -215,9 +221,15 @@
           </div>
         </section>
       </section>
-      <section class="metrics">
-        <p class="label">MEASURABLE VELOCITY</p>
-        <h2 class="section-title">Metrics that do the talking</h2>
+      <section class="metrics" id="metrics">
+        <div class="metrics-header">
+          <p class="label">MEASURABLE VELOCITY</p>
+          <h2 class="section-title">Your growth, quantified</h2>
+          <p class="metrics-subtitle">
+            Real-time insights into system performance and conversion
+            optimization
+          </p>
+        </div>
         <div class="metric-grid">
           <div class="charts-showcase">
             <div class="chart-wrapper" id="sales-chart-section">
@@ -359,7 +371,83 @@
       </section>
     </main>
     <footer id="footer">
-      <img src="assets/TELICA 2.png" alt="" />
+      <div class="footer-container">
+        <!-- Logo & Brand -->
+        <div class="footer-brand">
+          <img src="assets/TELICA 2.png" alt="TELICA Logo" />
+          <p>Building conversion-first digital momentum across Africa.</p>
+          <div class="footer-contact">
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:telicaafrica22@gmail.com"
+                >telicaafrica22@gmail.com</a
+              >
+            </p>
+            <p><strong>Location:</strong> Nigeria (12 States)</p>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#telica-values">Our Values</a></li>
+            <li><a href="#metrics">Metrics</a></li>
+            <li><a href="#growth">Get Started</a></li>
+            <li><a href="mailto:telicaafrica22@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- T.E.L.I.C.A DNA Values -->
+        <div class="footer-dna">
+          <h4>Our DNA</h4>
+          <ul>
+            <li>
+              <span class="dna-letter">T</span>
+              <span>Trust</span>
+            </li>
+            <li>
+              <span class="dna-letter">E</span>
+              <span>Excellence</span>
+            </li>
+            <li>
+              <span class="dna-letter">L</span>
+              <span>Leadership</span>
+            </li>
+            <li>
+              <span class="dna-letter">I</span>
+              <span>Innovation</span>
+            </li>
+            <li>
+              <span class="dna-letter">C</span>
+              <span>Customer-Centricity</span>
+            </li>
+            <li>
+              <span class="dna-letter">A</span>
+              <span>Accountability</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Branding</a></li>
+            <li><a href="#services">Digital Design</a></li>
+            <li><a href="#services">Performance Ads</a></li>
+            <li><a href="#services">Video Production</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 TELICA Digital Concepts. All rights reserved.</p>
+        <p>Built with precision. Engineered for growth.</p>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>

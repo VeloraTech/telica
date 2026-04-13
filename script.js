@@ -14,20 +14,17 @@ themeBtn.onclick = () => {
     root.getAttribute("data-theme") === "dark" ? "light" : "dark";
   root.setAttribute("data-theme", targetTheme);
   localStorage.setItem("theme", targetTheme);
-  themeBtn.innerHTML = targetTheme === "dark" ? "🌙" : "💡";
+  themeBtn.innerHTML = targetTheme === "dark" ? "💡" : "🌙";
 };
 // Update Icon
-themeBtn.innerHTML = currentTheme === "dark" ? "🌙" : "💡";
+themeBtn.innerHTML = currentTheme === "dark" ? "💡" : "🌙";
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.querySelector(".eyebrow").classList.add("loaded");
     document.querySelector(".hero-title").classList.add("loaded");
     document.querySelector("p").classList.add("loaded");
-    document
-      .querySelectorAll(".hero-actions")
-      .forEach()
-      .classList.add("loaded");
+    document.getElementById("hero-cta").classList.add("loaded");
   }, 1000);
 });
 
