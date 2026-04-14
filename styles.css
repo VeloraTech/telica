@@ -1630,6 +1630,7 @@ main {
 /* ===== MOBILE RESPONSIVE (480px and below) ===== */
 @media (max-width: 480px) {
   body {
+    max-width: 350px;
     overflow-x: hidden;
   }
   main {
