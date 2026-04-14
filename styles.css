@@ -1631,7 +1631,7 @@ main {
 @media (max-width: 480px) {
   body {
     max-width: 350px;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
   main {
     max-width: 100%;
