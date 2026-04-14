@@ -1629,9 +1629,15 @@ main {
 
 /* ===== MOBILE RESPONSIVE (480px and below) ===== */
 @media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
   main {
     max-width: 100%;
     padding: 0 12px;
+  }
+  .about {
+    padding-left: 0px !important;
   }
   .right-visual {
     display: none !important;
