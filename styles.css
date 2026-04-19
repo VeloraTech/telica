@@ -171,8 +171,10 @@ header .logo {
 }
 
 header .logo img {
-  height: clamp(40px, 8vw, 100px);
-  width: clamp(60px, 12vw, 150px);
+  /* height: clamp(40px, 8vw, 100px);
+  width: clamp(60px, 12vw, 150px); */
+  height: 8vh;
+  width: 10vw;
   object-fit: cover;
   transition: transform var(--transition);
 }
@@ -401,8 +403,6 @@ main {
 }
 
 .content-block .hero-actions .button {
-  width: 100%;
-  max-width: 100%;
   justify-content: center;
   text-align: center;
 }
@@ -1450,6 +1450,11 @@ main {
 
 /* ===== TABLET RESPONSIVE (768px and below) ===== */
 @media (max-width: 768px) {
+  html,
+  body {
+    max-width: 1005;
+    overflow-x: hidden;
+  }
   main {
     max-width: 100%;
     padding: 0 20px;
@@ -1516,6 +1521,7 @@ main {
     gap: 30px;
     padding: 20px;
     padding-top: 30px;
+    margin-top: 60px;
   }
 
   .hero-copy {
@@ -1541,10 +1547,14 @@ main {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 25px;
+    padding-left: 13px;
+    max-width: 95% !important;
+    /* justify-self: center; */
   }
 
   .about-grid p {
     font-size: 0.95rem;
+    /* text-align: justify; */
   }
 
   .chart-container {
@@ -1587,6 +1597,7 @@ main {
     max-width: 100%;
     overflow-x: hidden;
     padding-right: clamp(12px, 2vw, 16px);
+    text-wrap: wrap;
   }
 
   .content-block h2 {
